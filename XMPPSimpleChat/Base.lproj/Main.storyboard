@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" restorationIdentifier="loginView" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbK-yI-jkO" userLabel="enterButton">
+                                <rect key="frame" x="124" y="216" width="353" height="30"/>
+                                <color key="backgroundColor" red="0.79547973477092837" green="1" blue="0.9549168856003547" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="ENTER"/>
+                                <connections>
+                                    <action selector="enterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BkP-MO-R7m"/>
+                                    <segue destination="LNo-FG-13B" kind="presentation" identifier="next" modalTransitionStyle="flipHorizontal" id="66A-7q-9d4"/>
+                                </connections>
+                            </button>
+                            <textField autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ik-4N-zBb" userLabel="password">
+                                <rect key="frame" x="124" y="165" width="353" height="30"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
+                            </textField>
+                            <textField autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="login jID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLP-sZ-90E" userLabel="login">
+                                <rect key="frame" x="124" y="119" width="353" height="30"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration" label="login"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aa-vk-AUA">
+                                <rect key="frame" x="124" y="268" width="353" height="852"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Task:
+	Simple messenger.
+	User must be registered manually on XMPP Server.
+	Protocol: XMPP
+	Views:
+	- Login View
+	- Chat View
+	Views: AutoLayout programmatically
+	Libs: can be used libs for messages text TextView and XMPP-connectivity
+
+1) Login view
+	- Login/pass input fields
+	- Login button
+	- Redirect to next screen after successful authorisation on XMPP Server
+	- Progress bar during login/Alert in case of wrong username/pass or connection error
+	- Save user data to user defaults in case of successful authorisation
+
+2) Chat view
+	- Connection status label (displays status of current connection: Connecting, Connected, Disconnected)
+	- username textfield full JID: to whom to send message when Send button pressed
+	- TableView to show incoming/outgoing messages (from cache, no need to store in DB). Show username (From) and body of message
+	- TextView to enter text message (multiline, max 3 lines)
+	- Send button
+	- Logout button
+3) XMPP
+	- connect/handle messages (receive, send) in parallel thread
+	- connectivity handler (handle change from WiFi to cellular, no internet)
+	- resend cached messages on successful connection
+
+
+Resources:
+	- XMPPFramework https://github.com/robbiehanson/XMPPFramework
+	- https://adium.im/ can be used to test XMPP connection
+	- XMPP Server:</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="enterButtonView" destination="AbK-yI-jkO" id="ahZ-ZD-gLe"/>
+                        <outlet property="loginTextView" destination="KLP-sZ-90E" id="vCb-co-arL"/>
+                        <outlet property="passwordTextView" destination="7ik-4N-zBb" id="YS5-G0-uhP"/>
+                        <outlet property="textView" destination="9aa-vk-AUA" id="3PD-oQ-Z2X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="pE3-Ux-yTh">
+            <objects>
+                <viewController id="LNo-FG-13B" customClass="ChatViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wtS-DW-Mej"/>
+                        <viewControllerLayoutGuide type="bottom" id="TLS-gi-med"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VcC-DS-zMm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Connected" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-Lw-eJx" userLabel="statementLabel">
+                                <rect key="frame" x="137" y="0.0" width="220" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LTi-ma-iL8">
+                                <rect key="frame" x="137" y="81" width="327" height="511"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LNo-FG-13B" id="dwk-jJ-3yN"/>
+                                    <outlet property="delegate" destination="LNo-FG-13B" id="7P0-tg-GbE"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="jID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qRX-fM-KZn" userLabel="jID">
+                                <rect key="frame" x="137" y="38" width="327" height="30"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL6-Zw-t1u" userLabel="enterButton">
+                                <rect key="frame" x="365" y="3" width="99" height="30"/>
+                                <color key="backgroundColor" red="0.7954797348" green="1" blue="0.95491688559999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButton:" destination="LNo-FG-13B" eventType="touchUpInside" id="O3n-rb-IJU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="jidTextView" destination="qRX-fM-KZn" id="osh-EA-2id"/>
+                        <outlet property="logoutButtonView" destination="PL6-Zw-t1u" id="5Y3-ij-AXA"/>
+                        <outlet property="statementLabel" destination="LkT-Lw-eJx" id="wRH-7x-LdZ"/>
+                        <outlet property="tableView" destination="LTi-ma-iL8" id="cdR-1W-dD2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEs-tq-nBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="350"/>
+        </scene>
+    </scenes>
+</document>
