@@ -189,6 +189,7 @@
 		95F8B5F51C02DB3100FB3388 /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F8B5EA1C02DB3100FB3388 /* MessageEntrySendButtonPressed.png */; };
 		95F8B5F61C02DB3100FB3388 /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95F8B5EB1C02DB3100FB3388 /* MessageEntrySendButtonPressed@2x.png */; };
 		95F8B5F91C02E93600FB3388 /* MSVChatUserRec.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8B5F81C02E93600FB3388 /* MSVChatUserRec.m */; };
+		95F8B5FC1C04D39200FB3388 /* MSVChatUserSaved.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8B5FB1C04D39200FB3388 /* MSVChatUserSaved.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -556,6 +557,8 @@
 		95F8B5EB1C02DB3100FB3388 /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 		95F8B5F71C02E93600FB3388 /* MSVChatUserRec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVChatUserRec.h; sourceTree = "<group>"; };
 		95F8B5F81C02E93600FB3388 /* MSVChatUserRec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVChatUserRec.m; sourceTree = "<group>"; };
+		95F8B5FA1C04D39200FB3388 /* MSVChatUserSaved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSVChatUserSaved.h; sourceTree = "<group>"; };
+		95F8B5FB1C04D39200FB3388 /* MSVChatUserSaved.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSVChatUserSaved.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1559,6 +1562,8 @@
 				95F8B51E1C02977400FB3388 /* MSVChatDataManager.m */,
 				95F8B51F1C02977400FB3388 /* MSVChatUser.h */,
 				95F8B5201C02977400FB3388 /* MSVChatUser.m */,
+				95F8B5FA1C04D39200FB3388 /* MSVChatUserSaved.h */,
+				95F8B5FB1C04D39200FB3388 /* MSVChatUserSaved.m */,
 				95F8B5211C02977400FB3388 /* MSVChatUserMe.h */,
 				95F8B5221C02977400FB3388 /* MSVChatUserMe.m */,
 				95F8B5F71C02E93600FB3388 /* MSVChatUserRec.h */,
@@ -1844,6 +1849,7 @@
 				95F8B5841C02977400FB3388 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				95F8B55A1C02977400FB3388 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				95F8B5311C02977400FB3388 /* NSXMLElement+XMPP.m in Sources */,
+				95F8B5FC1C04D39200FB3388 /* MSVChatUserSaved.m in Sources */,
 				95F8B5681C02977400FB3388 /* XMPPvCardTempAdrTypes.m in Sources */,
 				95F8B5711C02977400FB3388 /* XMPPPubSub.m in Sources */,
 				95F8B5721C02977400FB3388 /* TURNSocket.m in Sources */,

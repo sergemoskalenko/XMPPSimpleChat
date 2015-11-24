@@ -44,11 +44,11 @@
         _isReachable = YES;
         
         _me = [MSVChatUserMe new];
-        _reciever = [MSVChatUser new];
+        _reciever = [MSVChatUserRec new];
         _messagesLocal = [NSMutableArray new];
-       _xmppHelper = [XMPPHelper new];
+        _xmppHelper = [XMPPHelper new];
+        _xmppHelper.delegate = self;
         
-
         self.timer = [NSTimer scheduledTimerWithTimeInterval:5. target:self selector:@selector(timerTicked:) userInfo:nil repeats:YES];
     }
     return self;
@@ -56,6 +56,7 @@
 
 - (void)dealloc
 {
+    self.xmppHelper.delegate = nil;
     [self.timer invalidate];
 }
 
@@ -139,5 +140,23 @@
  }
 
 
+#pragma mark - XMPPHelper
+
+- (void)connect
+{
+    self.xmppHelper.userJID = self.me.jid;
+    self.xmppHelper.userPassword = self.me.password;
+    [self.xmppHelper connect];
+}
+
+- (void)disconnect
+{
+    [self.xmppHelper disconnect];
+}
+
+- (void)xmppHelper:(XMPPHelper *)xmppHelper didRecieveMessage:(NSString *)message to:(NSString *)to from:(NSString *)from
+{
+    [[MSVChatDataManager sharedInstance] newMessage:message to:to from:from];
+}
 
 @end

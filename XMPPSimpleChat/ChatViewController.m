@@ -36,7 +36,7 @@
     [SVProgressHUD show];
     dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // time-consuming task
-        [[MSVChatDataManager sharedInstance].xmppHelper connect];
+        [[MSVChatDataManager sharedInstance] connect];
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [SVProgressHUD dismiss] ;
@@ -47,7 +47,7 @@
 
 - (void)disconnect
 {
-    [[MSVChatDataManager sharedInstance].xmppHelper disconnect];
+    [[MSVChatDataManager sharedInstance] disconnect];
     _statementLabel.text = @"Disconnected";
 }
 
@@ -60,7 +60,7 @@
     
     _jidTextView.text = [MSVChatDataManager sharedInstance].reciever.jid;
     
-    [_jidTextView setDelegate:self];
+    [_jidTextView setDelegate:(id<UITextFieldDelegate>)self];
     [_jidTextView setReturnKeyType:UIReturnKeyDone];
     [_jidTextView addTarget:self
                        action:@selector(textFieldFinished:)
@@ -141,7 +141,7 @@
     // textView.maxHeight = 200.0f;
     self.textView.returnKeyType = UIReturnKeyGo; //just as an example
     self.textView.font = [UIFont systemFontOfSize:15.0f];
-    self.textView.delegate = self;
+    self.textView.delegate = (NSObject<HPGrowingTextViewDelegate> *)self;
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     self.textView.backgroundColor = [UIColor clearColor]; // [UIColor whiteColor];
     self.textView.placeholder = @"Add a comment";
@@ -264,7 +264,7 @@
 - (IBAction)logoutButton:(id)sender
 {
     [[MSVChatDataManager sharedInstance] saveMessages];
-    [[MSVChatDataManager sharedInstance].xmppHelper disconnect];
+    [[MSVChatDataManager sharedInstance] disconnect];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -27,11 +27,15 @@
 #import "XMPPRoomMessageHybridCoreDataStorageObject.h"
 #import "XMPPMessageDeliveryReceipts.h"
 
-#import "MSVChatDataManager.h"
-
 #define kMSVMessageSentKey @"kMSVMessageSentKey"
 #define kMSVMessageRecieveKey @"kMSVMessageRecieveKey"
 #define kMSVConnectedKey @"kMSVConnectedKey"
+
+@class XMPPHelper;
+@protocol XMPPHelperDelegate <NSObject>
+@optional
+- (void)xmppHelper:(XMPPHelper *)xmppHelper didRecieveMessage:(NSString *)message to:(NSString *)to from:(NSString *)from;
+@end
 
 @interface XMPPHelper : NSObject <XMPPRoomDelegate>
 {
@@ -55,6 +59,11 @@
     BOOL customCertEvaluation;
     BOOL isXmppConnected;
 }
+
+@property (nonatomic, strong) NSString *userJID;
+@property (nonatomic, strong) NSString *userPassword;
+@property (nonatomic, weak) id<XMPPHelperDelegate> delegate;
+
 
 + (id)sharedInstance;
 

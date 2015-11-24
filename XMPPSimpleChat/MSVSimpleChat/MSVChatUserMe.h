@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSVChatUser.h"
+#import "MSVChatUserSaved.h"
 
-@interface MSVChatUserMe : MSVChatUser
+@interface MSVChatUserMe : MSVChatUserSaved
 
 @end

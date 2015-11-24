@@ -8,8 +8,6 @@
 
 #import "XMPPHelper.h"
 #import "GCDAsyncSocket.h"
-#import "MSVChatDataManager.h"
-
 
 #import "GCDAsyncSocket.h"
 
@@ -329,8 +327,8 @@
         return YES;
     }
     
-    NSString *myJID = [MSVChatDataManager sharedInstance].me.jid ;
-    NSString *myPassword = [MSVChatDataManager sharedInstance].me.password;
+    NSString *myJID = self.userJID ;
+    NSString *myPassword = self.userPassword;
     //
     // If you don't want to use the Settings view to set the JID,
     // uncomment the section below to hard code a JID and password.
@@ -462,7 +460,7 @@
     
     isXmppConnected = YES;
     
-    NSString *password = [MSVChatDataManager sharedInstance].me.password;
+    NSString *password = self.userPassword;
     NSError *error = nil;
     if (![[self xmppStream] authenticateWithPassword:password error:&error])
     {
@@ -513,7 +511,8 @@
         NSString *body = [[message elementForName:@"body"] stringValue];
         NSString *displayName = [user displayName];
         
-        [[MSVChatDataManager sharedInstance] newMessage:body to:[MSVChatDataManager sharedInstance].me.jid from:[message fromStr]];
+        if ([self.delegate conformsToProtocol:@protocol(XMPPHelperDelegate)])
+            [self.delegate xmppHelper:self didRecieveMessage:body to:self.userJID from:[message fromStr]];//
         
         [[NSNotificationCenter defaultCenter] postNotificationName:kMSVMessageRecieveKey  object:nil userInfo:@{@"user": message.from.user}];
         if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)

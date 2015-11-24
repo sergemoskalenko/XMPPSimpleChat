@@ -128,7 +128,7 @@
         [SVProgressHUD show];
         dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             // time-consuming task
-            [[MSVChatDataManager sharedInstance].xmppHelper connect];
+            [[MSVChatDataManager sharedInstance] connect];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [SVProgressHUD dismiss] ;
@@ -141,40 +141,40 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     return NO;
     
-    
-    [SVProgressHUD show];
-    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // time-consuming task
-        [[MSVChatDataManager sharedInstance].xmppHelper connect];
-        dispatch_async(dispatch_get_main_queue(), ^{
-
-            [SVProgressHUD dismiss] ;
-        });
-    });
-    
-    NSLog(@"%@", identifier); return YES;
-    if ([identifier isEqualToString:@"Identifier Of Segue Under Scrutiny"]) {
-        // perform your computation to determine whether segue should occur
-        
-        BOOL segueShouldOccur = YES|NO; // you determine this
-        if (!segueShouldOccur) {
-            UIAlertView *notPermitted = [[UIAlertView alloc]
-                                         initWithTitle:@"Alert"
-                                         message:@"Segue not permitted (better message here)"
-                                         delegate:nil
-                                         cancelButtonTitle:@"OK"
-                                         otherButtonTitles:nil];
-            
-            // shows alert to user
-            [notPermitted show];
-            
-            // prevent segue from occurring
-            return NO;
-        }
-    }
-    
-    // by default perform the segue transition
-    return YES;
+//    
+//    [SVProgressHUD show];
+//    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        // time-consuming task
+//        [[MSVChatDataManager sharedInstance].xmppHelper connect];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//
+//            [SVProgressHUD dismiss] ;
+//        });
+//    });
+//    
+//    NSLog(@"%@", identifier); return YES;
+//    if ([identifier isEqualToString:@"Identifier Of Segue Under Scrutiny"]) {
+//        // perform your computation to determine whether segue should occur
+//        
+//        BOOL segueShouldOccur = YES|NO; // you determine this
+//        if (!segueShouldOccur) {
+//            UIAlertView *notPermitted = [[UIAlertView alloc]
+//                                         initWithTitle:@"Alert"
+//                                         message:@"Segue not permitted (better message here)"
+//                                         delegate:nil
+//                                         cancelButtonTitle:@"OK"
+//                                         otherButtonTitles:nil];
+//            
+//            // shows alert to user
+//            [notPermitted show];
+//            
+//            // prevent segue from occurring
+//            return NO;
+//        }
+//    }
+//    
+//    // by default perform the segue transition
+//    return YES;
 }
 
 @end

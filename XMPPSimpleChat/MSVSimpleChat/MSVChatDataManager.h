@@ -16,7 +16,7 @@
 #define kMSVNewMessageKey @"kMSVNewMessageKey"
 
 @class XMPPHelper;
-@interface MSVChatDataManager : NSObject
+@interface MSVChatDataManager : NSObject <XMPPHelperDelegate>
 
 @property (nonatomic, strong, readonly) MSVChatUserMe* me;
 @property (nonatomic, strong, readonly) MSVChatUserRec* reciever;
@@ -33,8 +33,9 @@
 
 - (NSArray *)messages;
 
-- (void)setupReachability;
-
 - (NSString *)pathToCacheFileNamed:(NSString *)fileName;
+
+- (void)connect;
+- (void)disconnect;
 
 @end
