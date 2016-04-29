@@ -25,11 +25,9 @@ XMPPSimpleChat - This tiny project is written very quickly as the test task.  ht
 Resources:
 	- XMPPFramework https://github.com/robbiehanson/XMPPFramework
 	- https://adium.im/ can be used to test XMPP connection
-	- XMPP Server:
-          http://chatme.im
-
-          serge@chatme.im
-          serge2@chatme.im
-          
-          Public XMPP servers
-          https://list.jabber.at
+	- XMPP Server: http://chatme.im
+	serge@chatme.im
+	serge2@chatme.im
+  
+Public XMPP servers
+	https://list.jabber.at
