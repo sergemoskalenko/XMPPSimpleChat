@@ -30,3 +30,6 @@ Resources:
 
           serge@chatme.im
           serge2@chatme.im
+          
+          Public XMPP servers
+          https://list.jabber.at
